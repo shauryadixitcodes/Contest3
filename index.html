@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contest3</title>
+
+        <link rel="stylesheet" href="<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+        <style>
+            .main-div-container{
+                background-color: black;
+                width: 680.5px;
+                height: 435.656px;
+            }
+    
+            #new-main-div{
+                padding-left: 38px;
+                padding-top: 15px;
+                
+            }
+             
+            .Title{
+                color: rgb(231, 225, 225);
+                font-family: Roboto,arial;
+                font-size: 30px;
+                font-weight: 20;
+                margin-top: 20px;
+                margin-bottom: 10px;
+            }
+             
+            .mid-div-1{
+                padding-top: 0px;
+                width: 140px;
+            }
+            #line-1{
+                color: white;
+                font-family: Roboto,arial;
+                border-bottom-style: solid;
+                border-width: 1px;
+                font-size: 12px;
+                margin-top: 0px;
+                padding-bottom: 6px;
+            }
+    
+            .mid-div-2{
+                width: 200px;
+            }
+    
+            #line-2{
+                color: rgb(131, 21, 21);
+                font-family: Roboto,arial;
+                font-size: 12px;
+                margin-top: 15px;
+                margin-bottom: 22px;
+                display: none;
+            }
+    
+            .decrement-button{
+                background-color: white;
+                color: black;
+                font-size: 10px;
+                border: none;
+                box-shadow: 1px 0px 1px rgb(231, 225, 225);
+                padding-left: 14px;
+                padding-right: 14px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-right: 5px;
+            }
+    
+            .increment-button{
+                background-color: white;
+                color: black;
+                font-size: 10px;
+                border: none;
+                box-shadow: 1px 0px 1px rgb(231, 225, 225);
+                padding-left: 14px;
+                padding-right: 14px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                margin-right: 5px;
+            }
+    
+            #clear-button{
+                background-color: black;
+                color: rgb(202, 195, 195);
+                font-size: 10px;
+                border: solid;
+                border-color: rgb(202, 195, 195);
+                border-width: 1px;
+                padding-left: 28px;
+                padding-right: 28px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+          </style>
+    </head>
+    <body>
+        <div class="main-div-container">
+            <div id="new-main-div"> 
+                <div class="Heading">
+                <p class="Title">Counter using HTML</p>
+            </div>
+            <div class="mid-div-1"> 
+                <p id="line-1">Your Current Count is : 0</p> 
+            </div>
+            <div class="mid-div-2">
+                <p id="line-2">Error : Cannot go below 0</p>
+            </div>
+            <div>
+                <button class="decrement-button" onclick="decrement()">Decrement</button>
+                <button class="increment-button" onclick="Increment()">Increment</button>
+                <button id="clear-button" onclick="clr()">Clear</button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+      <script>
+        let count=0;
+
+        function hideClear(){
+            if(count==0){
+                document.getElementById("clear-button").style.display="none";
+            }
+        }
+        hideClear();
+
+        function Increment(){
+            count=count + 1;
+            document.getElementById("line-1").innerHTML="Your Current Count is : " + count;  
+            if(count>0){
+            document.getElementById("clear-button").style.display="inline-block";
+            document.getElementById("line-2").style.display="none";
+            }
+        }
+
+        function decrement(){
+            if(count>0){
+                count=count - 1;                
+            }
+            else{
+                document.getElementById("line-2").style.display="block";
+            }
+            document.getElementById("line-1").innerHTML="Your Current Count is : " + count;
+            hideClear();
+        }
+
+        function clr(){
+            count=0;
+            document.getElementById("line-1").innerHTML="Your Current Count is : " + count; 
+            hideClear();
+        }
+
+      </script>
+    </body>
+</html>
